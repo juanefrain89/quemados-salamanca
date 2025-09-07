@@ -1,0 +1,138 @@
+
+
+<div class="padre"> 
+
+<div class="menu">
+
+        <div class="centrar" >  <img class="logo" src="imagen.png" alt="">
+             
+ </div>
+    
+<hr class="hr">
+<div class="items" >   <p  [ngStyle]="{
+  'font-size': activo == 1 ? '20px' : '15px',
+  'color': activo == 1 ? 'white' : '#C5D1D5'
+}"
+ (click)="handle(1)">Checador</p></div>
+<div class="items" (click)="handle(2)" >   
+ <p [ngStyle]="{
+  'font-size': activo == 2 ? '20px' : '15px',
+  'color': activo == 2 ? 'white' : '#C5D1D5'
+}">Agregar empleado</p></div>
+
+
+
+    </div>
+
+
+     <div class="menu-horizontal">
+          <h1 class="title">Organigrama</h1>
+<div class="containermenu" (click)="handlecerrar()" style="display: flex; gap: 20px;"> <p style="cursor: pointer; font-size: 20px; color: #858796 !important;">nombre</p>   <img src="user.jpg" alt="" class="perfil"> </div>
+        <div class="cerrarsesion" [ngStyle]="{'transform': cerrarsesion == true ? ' translateY(0px)': ' translateY(-300px)'}">
+<div class="itemsa"> <fa-icon [ngClass]="{'activoo': activo == 2}" [icon]="faUser" class="icon"></fa-icon> <p>Perfil</p></div>
+<div class="itemsa" [routerLink]="['/login']"><fa-icon class="icon" [icon]="faLogout"></fa-icon>  <p>Cerrar sesión </p></div>  
+</div>
+
+        </div>
+   
+    <div class="derecha" [ngStyle]="{'margin-top': activo == 1 ? '200px': '100px'}"> 
+       @if ( activo == 1) { 
+<div class="user" [ngClass]="{'add': sal == true}">
+  <div class="portada">
+    <button class="close-btn" (click)="jj(false)" [ngClass]="{'add': sal == true}">X</button>
+    <div class="per">
+      <img [src]="'http://localhost:3100/' + imagenmodal" alt=""  (error)="setDefaultImage($event)">
+    </div>
+  </div>
+
+  <div class="inf">
+    <div class="itsa">
+      <p>Nombre</p>
+      <h2>{{nombremodal}}</h2>
+    </div>
+    <div class="itsa">
+      <p>Numero de empleado</p>
+      <h2>{{numero_empleado}}</h2>
+    </div>
+    <div class="itsa">
+      <p>Puesto</p>
+      <h2>{{puestomodal}}</h2>
+    </div>
+    <div class="itsa">
+      <p>Telefono</p>
+      <h2>{{telefono}}</h2>
+    </div>
+    <div class="itsa">
+      <p>Nss</p>
+      <h2>{{nss}}</h2>
+    </div>
+    <div class="itsa">
+      <p>Edad</p>
+      <h2>{{edad}}</h2>
+    </div>
+  </div>
+</div>
+
+<div class="zoom-container" [style.transform]="'scale(' + zoom + ')'" style="width: auto;">
+  
+
+
+
+  <angular-org-chart 
+    [data]="arbol"
+    [nodeTemplate]="nodeTemplate">
+  </angular-org-chart>
+
+  <ng-template #nodeTemplate let-node>
+    <div *ngIf="node.empleado?.id_padre" class="node-card">
+      <div class="img">
+     <img [src]="node.imagen ? 'http://localhost:3100/' + node.imagen : 'http://localhost:3100/user.jpg'" 
+     alt="" 
+     style="cursor: pointer;"
+      (error)="setDefaultImage($event)"
+     (click)="cambiar(node); jj(true)">
+      </div>
+      <div class="abajo">
+        <div class="class-larga">200311</div>
+        <p class="name">{{ node.nombre || node.name || node.label }}</p>
+        <div class="puesto">Laboratorista clinico</div>
+        
+    <button
+  *ngIf="tieneHijos(node)"
+  class="show"
+  (click)="cargarHijos(node)">
+  {{ node.hijosVacios ? 'Regresar' : 'Ver más' }}
+</button>
+
+      </div>
+    </div>
+
+    <div *ngIf="!node.empleado?.id_padre" class="node-card">
+      <div class="con">
+        <img src="imagen.png" alt=""  >
+        <h1>Empresa</h1>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+       }@else {
+        <app-cargarempleadosorg></app-cargarempleadosorg>
+       }
+</div>
+
+
+
+</div>
+
+
+@if (activo == 1) {
+<div class="zoom"  [ngStyle]="{
+    'top': scrollY > 50 ? '100px' : '100px',
+    'left': scrollX > 220 ? '0' : '230px'
+  }"  [ngClass]="{'fic': scrollX > 300}">   
+<button (click)="zoomIn()">+</button>
+  <button (click)="zoomOut()">-</button>
+</div>
+
+}

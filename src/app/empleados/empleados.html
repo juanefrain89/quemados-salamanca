@@ -1,0 +1,224 @@
+<button (click)="sincronizar()">Sinconizar datos</button>
+
+
+
+
+<div class="padre">
+<input type="week" [(ngModel)]="semanaSeleccionada" value="" (ngModelChange)="handlefecha()" />
+  <div class="tabs"></div>
+  
+  <div class="botones">
+    <button  (click)="handleactivo(1)" [ngClass]="{ 'botonactivo': activo == 1 }">Checador</button>
+    <button (click)="handleactivo(2)" [ngClass]="{ 'botonactivo': activo == 2 }" >Tiempo Extra</button>
+    <button  (click)="handleactivo(3)" [ngClass]="{ 'botonactivo': activo == 3 }" >Asistencia Semanal</button>
+     <button  (click)="handleactivo(4)" [ngClass]="{ 'botonactivo': activo == 4}" >Checador</button>
+       <button  (click)="handleactivo(5)"  (click)="obtenerEmpleados()" [ngClass]="{ 'botonactivo': activo == 5}" >Agregar dia</button>
+  </div>
+
+
+  <div class="tabla-scroll"> 
+<div class="tabla"> 
+    <div class="fa"> <div class="fi">
+            Filtros
+        </div>   
+        
+    
+      <div class="inputs">
+       
+
+        <input type="text"  [(ngModel)]="nombre" class="filtros">
+        <input type="text" class="filtros">
+        <input type="text" class="filtros">
+  <input
+    ngxDaterangepickerMd
+    class="form-control"
+    [(ngModel)]="binding"
+    [autoApply]="true"
+    [showClearButton]="true"
+    [showDropdowns]="true"
+    [locale]="{ format: 'DD/MM/YYYY' }"
+    (ngModelChange)="fun2()"
+  />
+
+
+
+    </div>
+    
+    
+    </div>
+  
+  <table     *ngIf="activo == 1"  >
+   <thead >
+    <tr class="title">
+      <th>Nombre</th>          
+      <th>Turno</th>
+      <th>N. Empleado</th>  
+      <th>Hora entrada</th> 
+      <th>Hora salida</th> 
+      <th>Horas laboradas</th>   
+      <th>Retraso</th>    
+      <th>Horas extras</th>
+    </tr>
+  </thead>
+    <tr *ngFor="let item of asistencias">
+        <td><div class="ite">{{item.userName}}</div> </td>
+        <td><div class="ite"> {{item.turno}}</div></td>
+         <td><div class="ite">{{item.userId}}</div> </td>
+           <td><div class="ite">{{item.timestampStr}}</div> </td>
+            <td><div class="ite">{{item.salida}}</div> </td>
+             <td><div class="ite">  {{ item.horasTrabajadas.horas }}h 
+    {{ item.horasTrabajadas.minutos }}m 
+    {{ item.horasTrabajadas.segundos }}s</div> </td>
+    <td><div class="ite">{{item.temprano == true ?"+":"-"}} {{item.retraso?.horas}} h {{item.retraso?.minutos}}m</div></td>
+     <td><div class="ite">{{item.juan}}</div></td>
+           
+
+    </tr>
+  </table>
+
+
+  <table     *ngIf="activo == 2" >
+   <thead >
+    <tr class="title">
+      <th>Nombre</th>          
+      <th>Turno</th>
+      <th>N. Empleado</th>  
+      <th>Agregar tiempo Extra</th>    
+    </tr>
+  </thead>
+    <tr *ngFor="let item of horas_extras">
+        <td><div class="ite">{{item.userName}}</div> </td>
+        <td><div class="ite"> {{item.turno}}</div></td>
+         <td><div class="ite">{{item.id}}</div> </td>
+           <td><button (click)="handlemodal(item)">Agregar</button></td>
+           
+           
+
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+<div class="modal" *ngIf="modal == true">
+  <h4>Agregar tiempo extra al empleado {{numero_empleado}}</h4>
+  <input (input)="cv()" type="date" [(ngModel)]="diaextra">
+{{diaextra}}
+  <hr>
+
+  <input [(ngModel)]="cantidad_horasExtras" type="number" placeholder="coloca horas extras">
+  <br>
+  <button (click)="agregarTiempoextra()">Confirmar</button>
+
+
+</div>
+
+
+
+<table *ngIf="activo == 3">
+  <thead>
+    <tr class="title">
+      <th>Nombre</th>
+      <th>Lunes</th>
+      <th>Martes</th>
+      <th>Miércoles</th>
+      <th>Jueves</th>
+      <th>Viernes</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of porsemana">
+      <td><div class="ite">{{ item.nombre || 'Sin nombre' }}</div></td>
+
+      <td><div class="ite"><input type="checkbox" [checked]="item.dias.lunes" disabled /></div></td>
+      <td><div class="ite"><input type="checkbox" [checked]="item.dias.martes" disabled /></div></td>
+      <td><div class="ite"><input type="checkbox" [checked]="item.dias.miercoles" disabled /></div></td>
+      <td><div class="ite"><input type="checkbox" [checked]="item.dias.jueves" disabled /></div></td>
+      <td><div class="ite"><input type="checkbox" [checked]="item.dias.viernes" disabled /></div></td>
+
+      <td><div class="ite"><button (click)="handlemodal(item)">Agregar</button></div></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+<table *ngIf="activo == 4">
+  <thead>
+    <tr class="title">
+      <th>Nombre</th>          
+      <th>Turno</th>
+      <th>N. Empleado</th>  
+      <th>Hora entrada</th> 
+      <th>Hora salida</th> 
+      <th>Horas laboradas</th>   
+      <th>Retraso</th>    
+      <th>Horas extras</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of pares">
+      <td><div class="ite">{{ item?.userName || 'N/A' }}</div></td>
+      <td><div class="ite">{{ item?.turno || 'N/A' }}</div></td>
+      <td><div class="ite">{{ item?.deviceUserId || 'N/A' }}</div></td>
+      <td><div class="ite">{{ item?.timestampStr || 'N/A' }}</div></td>
+      <td><div class="ite">{{ item?.salida || 'N/A' }}</div></td>
+
+      <td>
+        <div class="ite" *ngIf="item?.horas_trabajadas; else sinHoras">
+          {{ item.horas_trabajadas.horas }}h 
+          {{ item.horas_trabajadas.minutos }}m 
+          {{ item.horas_trabajadas.segundos }}s
+        </div>
+        <ng-template #sinHoras>
+          <div class="ite">N/A</div>
+        </ng-template>
+      </td>
+
+      <td>
+        <div class="ite" *ngIf="item?.retraso; else sinRetardo">
+          {{ item.retraso.horas }}h, {{ item.retraso.minutos }}m
+        </div>
+        <ng-template #sinRetardo>
+          <div class="ite">N/A</div>
+        </ng-template>
+      </td>
+
+      <td><div class="ite">{{ item?.juan ?? 'N/A' }}</div></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<div *ngIf="activo == 5" class="modal">
+<select [(ngModel)]="opciones" name="" id="">
+  <option  [value]="item.id" *ngFor="let item of empleado">{{item.id}}</option>
+</select>
+{{opciones}}
+
+
+<input type="date" [(ngModel)]="dia"> 
+
+<p> dia</p>{{dia}}
+<button (click)="anadir()">en</button>
+</div>
+
+
+</div>
+
+
+
+

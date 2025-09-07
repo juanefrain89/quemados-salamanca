@@ -1,0 +1,136 @@
+
+<div class="padre">       
+
+
+
+
+   
+   
+
+
+<div class="contenedor-tabla contabla2" >
+<div class="head">
+  <p>AGREGAR EMPLEADO</p>
+</div>
+
+<div class="cc">
+ 
+<div class="cc_uno"> 
+ 
+<div class="itemcc">
+    <p>Nombre</p>
+    <input type="text" placeholder="Nombre" [(ngModel)]="nombre" />
+</div>
+
+<div class="itemcc">
+    <p>Departamento</p>
+    <select name="" [(ngModel)]="ngmodeldepartamento" (change)="buscarempleadospordepa()" id="">
+    <option [value]="item.id_hijo"   *ngFor="let item of departamentos">{{item.nombre}}</option>
+</select>
+</div>
+
+<div class="itemcc">
+    <p>Jefe</p>
+    <select  [(ngModel)]="padre" name="" id="">
+    <option [value]="item.id_hijo" *ngFor="let item of x">{{item.nombre}}</option>
+</select>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="cc_uno"> 
+ 
+
+<div class="itemcc">
+    <p>Edad</p>
+    <input type="number"  [(ngModel)]="edad" />
+</div>
+
+<div class="itemcc">
+    <p>Numero telefono</p>
+    <input type="number" placeholder="numero tel" [(ngModel)]="telefono" />
+</div>
+<div class="itemcc">
+    <p>Nss</p>
+    
+
+<input type="text"  placeholder="Nss" [(ngModel)]="nss" />
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="cc_uno">
+
+
+<div class="itemcc">
+    <p>Puesto</p>
+ 
+    <select name="" [(ngModel)]="puesto"  id="">
+        <option *ngFor="let item of empleados" [value]="item.puestoData.id">{{item.puestoData.nombre}}</option>
+    </select>
+
+</div>
+
+<div class="itemcc">
+    <p>Actividades</p>
+    <input  type="text" [(ngModel)]="actividades" />
+</div>
+
+
+<div class="itemcc">
+    <p>Imagen</p>
+    <input     (change)="onFileChange($event)" type="file" name="" id="">
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+{{edad}}
+<div class="conbuton">
+  <button type="submit"  (click)="enviar()" class="agregarempleado tww">Aceptar</button>
+</div>
+
+
+
+
+  </div>
+
+  <div  [ngClass]="{'toast':toastr == false, 'toast2' : toastr == true }">
+Realizado correctamente
+    </div>
+
+

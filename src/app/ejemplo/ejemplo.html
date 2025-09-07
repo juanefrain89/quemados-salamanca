@@ -1,0 +1,978 @@
+
+
+<div class="padre">
+
+
+
+<div class="modales3" [ngStyle]="{'display': modalbaja == true ? '':'none'}">
+
+<div class="ventanabaja">
+  <div>
+    <p class="texto">Estas a punto de dar de baja al empleado </p>
+    <p class="numero">200311</p>
+
+    <div class="baja-boton">
+      <button class="cancer-baja" (click)="cancelarbaja()">cancelar</button>
+      <button class="confirmar-baja" (click)="confirmarbaja()">Confirmar</button>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+<div class="modales2" [ngStyle]="{'display': modalinsidencias == true ? '':'none'}">
+
+
+
+
+<div class="modalinsidencias">
+ <div class="arriba">
+  <div class="arriba1">  <p [ngClass]="{'tabactivo': tabactivo == 1}" (click)="handletab(1)">Insidencias</p><p [ngClass]="{'tabactivo': tabactivo == 2}" (click)="handletab(2)">Datos</p> </div>
+  <p style="cursor: pointer;" (click)="handleCancel()" class="close">x</p>
+ </div> 
+@if (tabactivo ==1) {
+ <table>
+
+<tr>
+  <th>Dia</th>
+  <th>descripcion </th>
+</tr>
+    <tr *ngFor="let item of insidenciasarr.asistenciasSemana">
+  <td *ngIf="item.descripcion" > {{ item.recordTime | date: 'yyyy-MM-dd' }}</td>
+           <td *ngIf="item.descripcion" >{{ item.descripcion }} </td>    
+    </tr>
+ </table>
+}@else if(tabactivo ==2){
+
+
+ 
+ 
+
+
+<div class="ans">
+ 
+  <div>
+    <p>Numero empleado</p>
+      <p>{{insidenciasarr.infototal.id}}</p>
+  </div>
+      
+       <div>
+  <p>Área</p>
+  <p>{{insidenciasarr.infototal.area}}</p>
+</div>
+
+<div>
+  <p>Beneficiario</p>
+  <p>{{insidenciasarr.infototal.beneficiario}}</p>
+</div>
+
+<div>
+  <p>Calle</p>
+  <p>{{insidenciasarr.infototal.calle}}</p>
+</div>
+
+<div>
+  <p>Ciudad</p>
+ 
+  <p>{{insidenciasarr.infototal.ciudad}}</p>
+</div>
+
+<div>
+  <p>Colonia</p>
+  <p>{{insidenciasarr.infototal.colonia}}</p>
+</div>
+
+<div>
+  <p>Contacto</p>
+  <p>{{insidenciasarr.infototal.contacto}}</p>
+</div>
+
+<div>
+  <p>Contratación</p>
+  <p>{{insidenciasarr.infototal.contratacion}}</p>
+</div>
+
+<div>
+  <p>Correo</p>
+  <p>{{insidenciasarr.infototal.correo}}</p>
+</div>
+
+<div>
+  <p>CP Fiscal</p>
+  <p>{{insidenciasarr.infototal.cp_fiscal}}</p>
+</div>
+
+<div>
+  <p>CUP</p>
+  <p>{{insidenciasarr.infototal.cup}}</p>
+</div>
+
+<div>
+  <p>CURP</p>
+  <p>{{insidenciasarr.infototal.curp}}</p>
+</div>
+
+
+
+<div>
+  <p>Departamento</p>
+  <p>{{insidenciasarr.infototal.departamento}}</p>
+</div>
+
+<div>
+  <p>Domicilio Beneficiario</p>
+  <p>{{insidenciasarr.infototal.dom_beneficiario}}</p>
+</div>
+
+<div>
+  <p>Escolaridad</p>
+  <p>{{insidenciasarr.infototal.escolaridad}}</p>
+</div>
+
+<div>
+  <p>Estado Civil</p>
+  <p>{{insidenciasarr.infototal.estado_civil}}</p>
+</div>
+
+<div>
+  <p>ID</p>
+  <p>{{insidenciasarr.infototal.id}}</p>
+</div>
+
+<div>
+  <p>Ingreso</p>
+  <p>{{insidenciasarr.infototal.ingreso}}</p>
+</div>
+
+<div>
+  <p>Nacimiento</p>
+  <p>{{insidenciasarr.infototal.nacimiento}}</p>
+</div>
+
+<div>
+  <p>Nombre</p>
+  <p>{{insidenciasarr.infototal.nombre}}</p>
+</div>
+
+<div>
+  <p>NSS</p>
+  <p>{{insidenciasarr.infototal.nss}}</p>
+</div>
+
+
+
+<div>
+  <p>Número Tarjeta</p>
+  <p>{{insidenciasarr.infototal.numero_tarjeta}}</p>
+</div>
+
+<div>
+  <p>Parada</p>
+  <p>{{insidenciasarr.infototal.parada}}</p>
+</div>
+
+<div>
+  <p>Parentesco</p>
+  <p>{{insidenciasarr.infototal.parentesco}}</p>
+</div>
+
+<div>
+  <p>Puesto</p>
+  <p>{{insidenciasarr.infototal.puesto}}</p>
+</div>
+
+<div>
+  <p>RFC</p>
+  <p>{{insidenciasarr.infototal.rfc}}</p>
+</div>
+
+<div>
+  <p>Ruta</p>
+  <p>{{insidenciasarr.infototal.ruta}}</p>
+</div>
+
+<div>
+  <p>Sexo</p>
+  <p>{{insidenciasarr.infototal.sexo}}</p>
+</div>
+
+<div>
+  <p>Sueldo</p>
+  <p>{{insidenciasarr.infototal.sueldo}}</p>
+</div>
+
+<div>
+  <p>Tarjeta</p>
+  <p>{{insidenciasarr.infototal.tarjeta}}</p>
+</div>
+
+<div>
+  <p>Teléfono Beneficiario</p>
+  <p>{{insidenciasarr.infototal.tel_beneficiario}}</p>
+</div>
+
+<div>
+  <p>Teléfono Emergencia</p>
+  <p>{{insidenciasarr.infototal.tel_emergencia}}</p>
+</div>
+
+<div>
+  <p>Teléfono Reclutado</p>
+  <p>{{insidenciasarr.infototal.tel_reclutado}}</p>
+</div>
+
+<div>
+  <p>Teléfono</p>
+  <p>{{insidenciasarr.infototal.telefono}}</p>
+</div>
+
+<div>
+  <p>Turno</p>
+  <p *ngIf="editarempleado == false">{{insidenciasarr.infototal.turno}}</p>
+  <input type="text" *ngIf="editarempleado == true" [(ngModel)]="insidenciasarr.infototal.turno">
+
+</div>
+
+</div>
+<div class="coneditar">
+  <button class="editarboton" *ngIf="editarempleado == true" (click)="confirmareditar(insidenciasarr.infototal)">Aceptar</button>
+  <fa-icon [icon]="faPenToSquare" class="editar" (click)="handleEditarempleado(insidenciasarr.infototal)"></fa-icon>
+
+</div>
+
+}
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="modales" [ngStyle]="{'display': isVisible == true ? '' : 'none'}">
+
+    <div class="ventana">
+        <div class="arriba"><p>Agregar Asistencia</p> <p style="cursor: pointer;" (click)="handleCancel()" class="close">x</p></div> 
+        
+        <hr>
+        <div class="abajo">
+            <div class="uno">
+                <div class="col">
+                    <div class="encasulado"> 
+                    <p *ngIf="active < 4">N. empleado</p> 
+
+                     <p *ngIf="active == 4">Motivo</p> 
+                     <select ngif class="opciones" *ngIf="active == 4" [(ngModel)]="ngmodeldiafestivo" id="">
+
+ <option value="1">Año nuevo</option>
+ <option value="2">Virgen guadalupe</option>
+ <option value="3">cumpleaños</option>
+ <option value="4">Navidad</option>
+</select>
+
+                       <select    ngif class="opciones" *ngIf="active == 1" [(ngModel)]="opciones" id="">
+
+  <option *ngFor="let item of empleado" [value]="item.id" >{{ item.id }} </option>
+</select>
+
+<!--select para agregar una vacacion-->
+<select class="opciones" *ngIf="active == 2 && accion !=2" [(ngModel)]="opciones" id="">
+
+  <option *ngFor="let item of kk" [value]="item.id">{{ item.id }}</option>
+</select>
+
+<select class="opciones" *ngIf="active == 2 && accion ==2" [(ngModel)]="opciones" id="">
+
+  <option *ngFor="let item of empleado" [value]="item.id">{{ item.id }}</option>
+</select>
+       </div>
+
+                 <div class="encasulado"> 
+                    <p *ngIf="accion != 2">Fecha</p> 
+                      <p *ngIf="accion == 2">Cantidad</p> 
+                    <!--input de dia de insidencias-->
+                    <input type="date" *ngIf="active == 2 && accion == 1 || active == 4 && accion == 1" [(ngModel)]="dia">
+
+  <!--input de dia de cantidad de vacaciones-->
+  <input type="number" *ngIf="active == 2 && accion == 2" [(ngModel)]="cantidadvacacion" >
+
+                     <!--input de dia horasextras-->
+                    <input type="date" *ngIf="active == 1" [(ngModel)]="diaextra" (ngModelChange)="handlextrasemana()">
+                  
+
+                    </div>
+                </div>
+                <div  class="col"> <input *ngIf="active == 2" name="" [(ngModel)]="situacion" placeholder="Introduce situacion" id="text"/>
+               
+               
+                
+              <select name="" id="" *ngIf="active == 1" [(ngModel)]="cantidad_horasExtras" id="text">
+                <option value="0.5" >0.5</option>
+                 <option value="1" >1</option>
+                  <option value="1.5" >1.5</option>
+                     <option value="2" >2</option>
+                     <option value="2.5" >2.5</option>
+                        <option value="3" >3</option>
+              </select>
+              
+              </div>
+                <div class="col col2">   
+                  <!--Agrega tiempo extra-->
+                  <button  class="as" *ngIf="active == 1"  (click)="agregarTiempoextra()">Confirmar</button>
+                  <!--Boton que agrega vacacion--> 
+                  <button  *ngIf="active == 2 && accion !=2" (click)="anadir()" class="as">Aceptar</button>
+                
+                <!--Boton que agrega cantidad de vacaciones-->
+                  <button  *ngIf="active == 2 && accion ==2" (click)="actualizarcantidadvacaciones()" class="as">Aceptar</button>
+                </div>
+
+                    <div >
+                      <!-- agrega dia festivo-->
+                    <button  *ngIf="active == 4" (click)="diafestivo()"  class="as">Aceptar</button></div>
+            </div>
+            <div class="dos">
+                <div class="img2">
+                    <img src="aguacate.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="menu">
+
+        <div class="centrar" >  <img class="logo" src="imagen.png" alt="">
+             
+ </div>
+    
+<hr class="hr">
+<div class="items" *ngxPermissionsOnly="['canverchecador']"> <fa-icon [icon]="faFingerprint" (click)="handle(1)" [ngClass]="{'activoo': active == 1}" class="icon"></fa-icon>  <p (click)="handle(1)" (click)="handleactivo(4)" [ngClass]="{'activoo': active == 1}">Checador</p></div>
+<div class="items" *ngxPermissionsOnly="['canverasistenciasemanal']" >   <fa-icon (click)="handleactivo(3)" (click)="handle(2)" [ngClass]="{'activoo': active == 2}" [icon]="faUser" class="icon"></fa-icon> <!-- Solid -->
+ <p (click)="handle(2)" (click)="handleactivo(3)" [ngClass]="{'activoo': active == 2}">Asistencias</p></div>
+
+<div class="items" *ngxPermissionsOnly="['canverempleados']">  <fa-icon  (click)="handle(4)" [ngClass]="{'activoo': active == 4}" [icon]="faClock" class="icon"></fa-icon><p   [ngClass]="{'activoo': active == 4}" (click)="handle(4)">Empleados</p></div>
+<div class="items" *ngxPermissionsOnly="['canaddempleado']">  <fa-icon  (click)="handle(3)"  [ngClass]="{'activoo': active == 3}" [icon]="faClock" class="icon"></fa-icon><p   [ngClass]="{'activoo': active == 3}" (click)="handle(3)">Agregar empleado</p></div>
+
+<fa-icon [icon]="faArrowLeft" (click)="hacermenuchico()" class="flecha"></fa-icon>
+    </div>
+
+    <div class="derecha">
+        <div class="menu-horizontal">
+          <h1 class="title">STAFF ASSISTENCE MANAGEMENT</h1>
+<div class="containermenu" (click)="handlecerrar()" style="display: flex; gap: 20px;"> <p style="cursor: pointer; color: #858796 !important;">{{usuario}}</p>   <img src="Baldo.jpg" alt="" class="perfil"> </div>
+        <div class="cerrarsesion" [ngStyle]="{'transform': cerrarsesion == true ? ' translateY(0px)': ' translateY(-300px)'}">
+<div class="itemsa"> <fa-icon [ngClass]="{'activoo': active == 2}" [icon]="faUser" class="icon"></fa-icon> <p>Perfil</p></div>
+<div class="itemsa" [routerLink]="['/login']"><fa-icon class="icon" [icon]="faLogout"></fa-icon>  <p>Cerrar sesión </p></div>  
+</div>
+
+        </div>
+
+<button (click)="exportar()" class="exportar">
+  <fa-icon [icon]="faDownload"></fa-icon>
+  Importar
+</button>
+<ng-container *ngxPermissionsOnly="['canaddempleado']"> 
+<div class="contenedor-tabla contabla2"  *ngIf="active == 3">
+<div class="head">
+  <p>AGREGAR EMPLEADO</p>
+</div>
+
+<div class="cc">
+ 
+<div class="cc_uno"> 
+ 
+<div class="itemcc">
+  <p>Nombres</p>
+  <input type="text" [(ngModel)]="empleados2.nombre"   >
+  
+</div>
+
+<div class="itemcc">
+  <p>Foto</p>
+ <input type="file" (change)="onFileChange($event)"    [(ngModel)]="empleados2.foto">
+</div>
+<div class="itemcc">
+  <p>Numero telefono</p>
+  <input type="number" [(ngModel)]="empleados2.telefono">
+     
+</div><div class="itemcc">
+  <p>Nss</p>
+  <input type="text" [(ngModel)]="empleados2.nss">
+</div>
+
+<div class="itemcc">
+  <p>Turno</p>
+
+  <select name="" (change)="puestocup(4)" [(ngModel)]="empleados2.turno" id="">
+    <option *ngFor="let item of turnos" [value]="item.id">{{item?.turno}}</option>
+  </select>
+</div>
+
+<div class="itemcc" >
+  <p>escolaridad</p>
+<select name="" id="" [(ngModel)]="empleados2.escolaridad">
+  <option value="primaria">Primaria</option>
+  <option value="Secundaria">Secundaria</option>
+  <option value="prepa">Prepa</option>
+  <option value="Universidad">Universidad</option>
+</select>
+</div>
+
+
+
+<div class="itemcc"  >
+  <p>Calle y numero</p>
+  <input type="text" [(ngModel)]="empleados2.calle" >
+</div>
+
+<div class="itemcc">
+  <p>Rfc</p>
+  <input type="text"  [(ngModel)]="empleados2.rfc">
+</div>
+
+
+<div class="itemcc">
+  <p>Dom_beneficiario</p>
+  <input type="text"  [(ngModel)]="empleados2.dom_beneficiario">
+</div>
+
+
+
+
+
+
+<div class="itemcc">
+  <p>Ruta</p>
+ 
+  <select (change)="encontrarparadas()"  [(ngModel)]="empleados2.ruta" name="" id="">
+    <option *ngFor="let item of rutas" [value]="item.id">{{item.nombre}}</option>
+  </select>
+</div>
+
+
+<div class="itemcc">
+  <p>Tel emergencia</p>
+  <input type="number" [(ngModel)]="empleados2.tel_emergencia"  >
+</div>
+
+
+<div class="itemcc">
+  <p>Tel Reclutador</p>
+  <input type="text" [(ngModel)]="empleados2.tel_reclutado" >
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="cc_uno"> 
+ <div class="itemcc">
+  <p>Apellido paterno</p>
+  <input type="text" [(ngModel)]="empleados2.apellido_paterno"   >
+  
+</div>
+<div class="itemcc">
+  <p>Numero empleado</p>
+  <input type="text" [(ngModel)]="empleados2.numero_empleado">
+</div>
+<div class="itemcc">
+  <p>Curp</p>
+  <input type="text" [(ngModel)]="empleados2.curp">
+  
+  <fa-icon [icon]="faMagnifyingGlass"  class="flecha"></fa-icon> 
+</div><div class="itemcc">
+  <p>Fecha ingreso</p>
+  <input type="date" [(ngModel)]="empleados2.ingreso">
+</div>
+<div class="itemcc">
+  <p>Numero de tarjeta</p>
+  <input type="text" [(ngModel)]="empleados2.tarjeta">
+</div>
+<div class="itemcc">
+  <p>Sueldo</p>
+  <input type="number" [(ngModel)]="empleados2.sueldo" >
+</div>
+
+
+<div class="itemcc">
+  <p>Colonia</p>
+  <input type="text" [(ngModel)]="empleados2.colonia" >
+</div>
+
+
+<div class="itemcc">
+  <p>Estado civil</p>
+  <select [(ngModel)]="empleados2.estado_civil" name="" id="">
+    <option value="Soltero">Soltero</option>
+    <option value="Casado">Casado</option>
+    <option value="Divorciado">Divorciado</option>
+    <option value="Viudo">Viudo</option>
+    <option value="Union libre">Union libre</option>
+  </select>
+ 
+</div>
+
+
+
+
+<div class="itemcc">
+  <p>Tel beneficiario</p>
+  <input type="text"  [(ngModel)]="empleados2.tel_beneficiario">
+</div>
+
+
+<div class="itemcc">
+  <p>Parada</p>
+  <select  [(ngModel)]="empleados2.parada" name="" id="">
+    <option  [value]="item.id" *ngFor="let item of paradas">{{item.nombre_parada}}</option>
+  </select>
+  
+</div>
+
+
+<div class="itemcc">
+  <p>Parentesco</p>
+  <select  [(ngModel)]="empleados2.parentesco" name="" id="">
+    <option value="Madre">Madre</option>
+    <option value="Padre">Padre</option>
+    <option value="Abuelo">Abuelo</option>
+    <option value="Abuela">Abuela</option>
+    <option value="Hijo">Hijo</option>
+    <option value="Hija">Hija</option>
+    <option value="Prima">Prima</option>
+    <option value="Primo">Primo</option>
+    <option value="Tia">Tia</option>
+    <option value="Tio">Tio</option>
+    <option value="Suegro">Suegro</option>
+    <option value="Suegra">Suegra</option>
+    <option value="Sobrino">Sobrino</option>
+    <option value="Sobrina">Sobrina</option>
+  </select>
+
+</div>
+
+<div class="itemcc">
+  <p>Cp fiscal</p>
+  <input type="text" [(ngModel)]="empleados2.cp_fiscal"  >
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="cc_uno">
+  <div class="itemcc">
+  <p>Apellido materno</p>
+  <input type="text" [(ngModel)]="empleados2.apellido_materno"   >
+  
+</div>
+<div class="itemcc">
+  <p>Departamento</p>
+ <select name="" id="" [(ngModel)]="departamento_model"  (change)="funcionencontrararea()">
+  <option [value]="item.id" *ngFor="let item of departamento">{{item.nombre}}</option>
+ </select>
+</div>
+
+
+
+<div class="itemcc">
+  <p>Area</p> <!-- departamento-->
+ <select name="" id="" [(ngModel)]="id_area_departamento"   (change)="findPuesto()">
+  <option [value]="item.id_area_departamento" *ngFor="let item of area_filtrada">{{item.nombre_area}}</option>
+ </select>
+</div>
+
+<div class="itemcc">
+  <p>Puesto</p>
+<select name="" id="" (change)="puestocup(3)" [(ngModel)]="empleados2.puesto">
+
+  <option *ngFor="let item of puesto_filtrado"  [value]="item.id_puesto">{{item.nombre}}</option>
+</select>
+</div>
+
+
+<div class="itemcc">
+  <p>Contratacion</p>
+  <select [(ngModel)]="empleados2.contratacion" name="" id="">
+    <option value="Practicante">Practicante</option>
+    <option value="Temporal">Temporal</option>
+    <option value="Planta">Planta</option>
+    <option value="Prueba">Prueba</option>
+   
+  </select>
+ 
+</div>
+
+<div class="itemcc">
+  <p>Sexo</p>
+ <select name=""  id="" [(ngModel)]="empleados2.sexo">
+  <option value="hombre">Hombre</option>
+  <option value="mujer">Mujer</option>
+  
+ </select>
+</div>
+
+
+<div class="itemcc">
+  <p>Ciudad</p>
+  <select [(ngModel)]="empleados2.ciudad" name="" id="">
+    <option value="Salamanca">Salamanca</option> 
+    <option value="Irapuato">Irapuato</option>
+    <option value="Silao">silao</option>
+    <option value="Romita">Romita</option>
+    <option value="Valle">valle</option>
+    <option value="Guanajuato">Guanajuato</option>
+    <option value="Penjamo">Penjamo</option>
+    <option value="Abasolo">Abasolo</option>
+  
+  </select>
+</div>
+
+<div class="itemcc">
+  <p>Fecha de nacimiento</p>
+  <input type="date"  [(ngModel)]="empleados2.nacimiento" >
+</div>
+
+
+
+
+
+<div class="itemcc">
+  <p>Correo</p>
+  <input type="email"[(ngModel)]="empleados2.correo" >
+</div>
+
+
+
+
+<div class="itemcc">
+  <p>Contacto emergencia</p>
+  <input type="text" [(ngModel)]="empleados2.contacto" >
+</div>
+
+
+
+
+
+<div class="itemcc">
+  <p>Cup</p>
+  <input type="text" [(ngModel)]="empleados2.cup">
+</div>
+
+<div class="itemcc">
+  <p>beneficiario</p>
+  <input type="text" [(ngModel)]="empleados2.beneficiario" >
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="conbuton">
+  <button type="submit" (click)="nuevoempleado()" class="agregarempleado tww">Aceptar</button>
+</div>
+
+</div>
+</ng-container>
+        <div class="contenedor-tabla" *ngIf="active < 3 || active == 4">
+            <div class="head">
+               <p>INFORMACION REISTRADA EN RELOJES CHECADORES</p> 
+            </div>
+            <div class="above"> 
+              <div class="container-butons"> 
+        
+<div class="nm"> 
+  <select class="ss" name="" id="" [(ngModel)]="longitud2" (change)="modificarlogintud1($event)">                 
+  <option [value]="20">Mostrar 20 filas</option>                   
+  <option [value]="50">Mostrar 50</option>                     
+  <option [value]="100">Mostrar 100</option>                       
+  <option [value]="200">Mostrar 200</option>                         
+  <option [value]="1000">Mostrar 1000</option> <!-- Corregido el texto -->               
+</select>
+
+  <button (click)="exportarexcel()">Exportar</button>
+</div>
+                
+               <ng-container *ngxPermissionsOnly="['canaddtiempoextra']">
+  <button *ngIf="active == 1" (click)="showModal(1,1)" class="agregarempleado">
+    Agregar tiempo extra
+  </button>
+</ng-container>
+<ng-container *ngxPermissionsOnly="['insidencia']" > <button *ngIf="active == 2" (click)="showModal(1,1)" class="agregarempleado">Agregar Insidencia</button></ng-container>
+<ng-container *ngxPermissionsOnly="['canaddvacaciones']" > <button *ngIf="active == 2" (click)="showModal(1,2)" class="agregarempleado">Agregar Cantidad de vacaciones</button></ng-container>
+                                
+
+<ng-container *ngxPermissionsOnly="['canadddiafestivo']">                     <button *ngIf="active == 4" (click)="showModal(1,1)" class="agregarempleado">Agregar dia festivo</button></ng-container>
+
+                   </div>
+                <hr>
+                <div class="filtros">
+                    <input type="text"(input)="filtros()" [(ngModel)]="name" placeholder="Nombre">
+                    <input (input)="filtroNempleado()" type="number" placeholder="N. empleado" [(ngModel)]="numero_empleado2"> 
+                     <input type="week" *ngIf="active == 2" [(ngModel)]="semanaSeleccionada" value="" (ngModelChange)="handlefecha()" />
+                    <select (change)="filtroHorasextras()" *ngIf="active == 1" [(ngModel)]="filtrohorasextras2" class="filtroh"  name="" id="">
+                      <option [value]="1">Si</option>
+                      <option [value]="2">No</option>
+                      <option  [value]="3">Sin filtro H. extras</option>
+                    </select>
+                     <input
+                     *ngIf="active == 1"
+    ngxDaterangepickerMd
+    class="form-control"
+    [(ngModel)]="binding"
+    [autoApply]="true"
+    [showClearButton]="true"
+    [showDropdowns]="true"
+    [locale]="{ format: 'DD/MM/YYYY' }"
+    (ngModelChange)="fun2()"
+  />
+                </div>
+             <div class="tabla">
+
+@if (active == 1) {
+ <table   *ngxPermissionsOnly="['admin', 'canverchecador'  ]"  class="table1">
+                <tr>
+                   <th>NOMBRE</th>
+                   <th>TURNO</th>
+                   <th>N. EMPLEADO</th>
+                   <th>ENTRADA</th>
+                   <th>SALIDA</th>
+                    <th>HORAS LABORADAS</th>
+                    <th>RETRASO</th>
+<ng-container *ngxPermissionsOnly="['admin', 'nominas' , '1']">
+  <th>H. EXTRAS</th>
+  <th>H. Extras total</th>
+</ng-container>
+                  
+                </tr>
+             <tr *ngFor="let item of paginacionpares" >
+  <td>{{ item?.userName || item?.empleado?.nombre || "N/A" }}</td>
+  <td>{{ item?.turno || 'N/A' }}</td>
+  <td>{{ item?.deviceUserId || 'N/A' }}</td>
+ <td>{{ (item?.timestampStr?.replace('T', ' ')) || 'N/A' }}</td>
+
+  <td>{{ item?.salida || 'N/A' }}</td>
+
+  <td >
+    <ng-container *ngIf="item?.horas_trabajadas; else sinHoras">
+      {{ item.horas_trabajadas.horas }}h 
+      {{ item.horas_trabajadas.minutos }}m 
+      {{ item.horas_trabajadas.segundos }}s
+    </ng-container>
+    <ng-template #sinHoras>N/A</ng-template>
+  </td>
+
+  <td [ngStyle]="{'background-color': item?.retraso ? 'yellow' : 'white'}">
+    <ng-container  *ngIf="item?.retraso; else sinRetardo">
+      {{ item.retraso.horas }}h, {{ item.retraso.minutos }}m
+    </ng-container>
+    <ng-template #sinRetardo>N/A</ng-template>
+  </td>
+<ng-container *ngxPermissionsOnly="['admin', 'nominas', '1']">
+   <td 
+  [ngStyle]="{
+    'color': item.juan != 'N/A' ? 'white' : '',
+    'background-color': item?.cumplidoextras == 'si' ? 'rgb(15, 249, 15)' 
+                       : item?.cumplidoextras == 'no' ? 'red' 
+                       : !item?.cumplidoextras && item.juan > 0 ? 'orange' 
+                       : 'white'
+  }"
+>
+  {{ item?.juan ?? 'N/A' }}
+</td>
+</ng-container>
+ 
+
+<ng-container *ngxPermissionsOnly="['admin', 'nominas', '1']">
+   <td >
+  {{ item?.todo ?? 'N/A' }}
+</td>
+</ng-container>
+
+
+</tr>
+
+             
+               
+
+            </table>
+          }
+            <table *ngIf="active == 2"  class="table1">
+              
+<tr class="th" >
+  <th>NOMBRE</th>
+  <th>N. Empleado</th>
+  <th>LUNES</th>
+  <th>MARTES</th> 
+  <th>MIERCOLES</th>
+  <th>JUEVES</th>
+  <th>VIERNES</th>
+  <th>SABADO</th>
+    <th>DOMINGO</th>
+    <th>H. extras semana</th>
+     <th>DE</th>
+    <th>% De ASISTENCIAS</th>
+   
+</tr>
+
+                <tr *ngFor="let item of paginacionsemana" (click)="handlemodalinsidencias(item)">
+  <td>{{ item.nombre || 'Sin nombre' }}</td>
+  <td>{{item?.id}}</td>
+
+  <td><input type="checkbox" [checked]="item.dias.lunes" disabled /></td>
+  <td><input type="checkbox" [checked]="item.dias.martes" disabled /></td>
+  <td><input type="checkbox" [checked]="item.dias.miercoles" disabled /></td>
+  <td><input type="checkbox" [checked]="item.dias.jueves" disabled /></td>
+  <td><input  item.asistenciasSemana.descripcion type="checkbox" [checked]="item.dias.viernes" disabled /></td>
+    <td><input type="checkbox" [checked]="item.dias.sabado" disabled /></td>
+  
+    <td  ><input type="checkbox" [checked]="item.dias.domingo" disabled /></td>
+   <td>{{item?.horasextrasemanal }}</td> 
+     <td>{{item?.descansolaborado}}</td>
+   
+     <td style="color: white;" [ngStyle]="{'background-color':item?.porcentajeasistencias >= 100 ?'#0ff90f': item?.porcentajeasistencias > 70 ?'orange': 'red' }">{{item?.porcentajeasistencias}}%</td>
+
+    </tr>
+
+
+            </table>
+
+
+   <table *ngIf="active == 4"  class="table1">
+              
+<tr>
+  <th>NOMBRE</th>
+   <th>Foto</th>
+  <th>N. Empleado</th>
+
+  <th>Puesto</th>
+  <th>Area</th>
+  <th>Departamento</th>
+  <th>Ingreso</th>
+  <th>Turno</th>
+  <th>Asistencias</th>
+  <th>Vacaciones</th>
+  <th>Faltas</th>
+  <th>Baja</th> 
+</tr>
+
+                <tr class="trr" *ngFor="let item of empleado">
+  <td>  <div class="tara">{{ item.nombre || 'Sin nombre' }} </div>  </td>
+  <td> <div class="tara">
+ <a [href]="url + '/' + item?.foto" target="_blank" rel="noopener noreferrer">
+  <img *ngIf="item.foto" [src]="url + '/' + item?.foto" alt="" class="imagenempleado">
+</a>
+
+  
+  </div> </td>
+ 
+    <td>     <div class="tara"> {{item?.id}}</div> </td>
+
+
+  <td><div class="tara"> {{item?.nombre_puesto}}</div></td>
+  <td><div class="tara">{{item?.nombre_area}}</div> </td>
+    <td> <div class="tara">{{item?.nombre_departamento}}</div> </td>
+   <td><div class="tara"> {{item?.ingreso | date: 'yyyy-MM-dd'}}</div></td>
+     <td><div class="tara"> {{item?.turno}}</div></td>
+       <td>{{item.asistencias30}}</td>
+       <td>{{item?.vacacionesdisponibles}}</td>
+      <td [ngStyle]="{
+  'background-color': item.faltas30 >= 3 ? 'red' : '',
+  'color': item.faltas30 >= 3 ? 'white' : ''
+}">{{item.faltas30}}</td>
+ <td >
+  <div class="ba">
+      <button class="baja" (click)="showmodaleliminar(item?.id)"> <fa-icon [icon]="basura" ></fa-icon></button>
+  </div>
+</td>
+  
+    </tr>
+
+
+            </table>
+
+
+             
+            </div>
+
+
+
+            </div>
+        </div>
+
+<div *ngIf="active == 1" class="paginacion"> 
+        <button [disabled]="verificar2atras" (click)="anteriorSemana1()">Anterior</button>
+           <p style="display: inline-block;">{{index2}}</p>
+    
+        <button [disabled]="verificar2sig" (click)="siguienteSemana1()">siguiente</button>
+        </div>
+
+<div *ngIf="active == 2" class="paginacion"> 
+        <button [disabled]="verificar1atras" (click)="anteriorSemana()">Anterior</button>
+        <p>{{index1}}</p>
+        <button [disabled]="verificar1sig" (click)="siguienteSemana()">siguiente</button>
+        </div>
+
+
+        
+    </div>
+
+    
+
+
+
+
+    <div  [ngClass]="{'toast':toastr == false, 'toast2' : toastr == true }">
+Realizado correctamente
+    </div>
+
+    <div  [ngClass]="{'toastmal':toastmal == false, 'toastmal2' : toastmal == true }">
+{{errorback}}
+    </div>
+
+
+</div>
+
+

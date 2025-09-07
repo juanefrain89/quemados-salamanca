@@ -1,0 +1,14 @@
+
+
+<select [(ngModel)]="sele" name="" id="" >
+   <option  *ngFor="let item of areas" [value]="item.id_area_departamento">
+  {{item.nombre_departamento}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.nombre_area}}
+</option>
+</select>
+
+
+<select name="" id="" [(ngModel)]="idpuesto">
+    <option *ngFor="let item of puesto"  [value]="item.id">{{item.nombre}}</option>
+</select>
+
+<button (click)="ver()">Aceptar</button>
