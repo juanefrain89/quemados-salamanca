@@ -1274,7 +1274,6 @@ this.porsemana = this.porsemana.filter(e => parseInt(e.infototal.departamento) =
 
 
 this.funcionforporsemana()
-  
    this.paginacionsemana  = this.porsemana.slice(0, this.longitud)
   
   console.log(this.porsemana);
@@ -1986,8 +1985,8 @@ let turno : any =""
 
 
 // this.empleados2.cup = "A"+ this.numero_departamento +this.clave_departamento + this.clavepuesto + turno
- this.empleados2.cup =  this.clavearea + this.numero_departamento +this.clave_departamento + this.clavepuesto + turno
-  
+
+ this.empleados2.cup =  this.clavearea + this.numero_departamento +this.clave_departamento + this.clavepuesto + this.turnos  
 }
 total_paradas :any[]=[]
 rutaseleccionada: any =1
@@ -1999,8 +1998,11 @@ paradas : any[]=[]
 encontrarparadas(){
 this.paradas = this.total_paradas.filter(e => e.id_ruta == this.empleados2.ruta)
 console.log("paradas", this.paradas);
-
 }
+
+
+
+
 
 obtenerrutas(){
   this.servicio.obtenerrutas().subscribe(
